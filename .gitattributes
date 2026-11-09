@@ -1,0 +1,5 @@
+*.glb binary
+*.gltf text
+*.bin binary
+*.7z* binary
+*.zip binary
