@@ -1,5 +1,136 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>S 680 Maybach</title>
-<style>html,body{margin:0;height:100%;background:#0a0a0b;overflow:hidden}canvas{display:block;width:100%;height:100%}</style>
-</head><body><canvas id="c"></canvas><script type="module" src="/src/main.js"></script></body></html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>S 680 — Maybach en trois dimensions</title>
+<meta name="description" content="Interprétation 3D interactive de la Mercedes-Maybach S 680 : extérieur, habitacle cuir beige et ciel étoilé noir. Projet personnel non officiel.">
+<meta name="theme-color" content="#0a0a0b">
+<script type="module" src="/src/main.js"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mm" viewBox="0 0 64 56">
+    <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M32 3 L61 52 H3 Z" stroke-width="1.4"/>
+      <path d="M14 44 V22 L24 36 L34 22 V44"/>
+      <path d="M30 44 V22 L40 36 L50 22 V44"/>
+    </g>
+  </symbol>
+</svg>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<div id="loader" role="status" aria-live="polite">
+  <svg class="mark" aria-hidden="true" style="color:var(--sable)"><use href="#mm"/></svg>
+  <div class="bar"><i></i></div>
+  <small>Chargement</small>
+</div>
+
+<canvas id="stage" aria-label="Modèle 3D de la Mercedes-Maybach S 680" role="img"></canvas>
+<div id="veil"></div>
+
+<header class="top">
+  <a class="brand" href="#haut"><svg aria-hidden="true"><use href="#mm"/></svg><span>S 680</span></a>
+  <nav aria-label="Chapitres">
+    <a href="#silhouette">Silhouette</a>
+    <a href="#mecanique">Mécanique</a>
+    <a href="#habitacle">Habitacle</a>
+    <a href="#options">Options</a>
+    <a href="#configurateur">Configurer</a>
+  </nav>
+</header>
+
+<div class="spots" id="spots" aria-hidden="false"></div>
+
+<main id="contenu">
+  <section class="ch hero" id="haut" data-rail="0">
+    <div>
+      <p class="kicker">Mercedes-Maybach</p>
+      <h1>S&nbsp;680</h1>
+      <div class="sub"><span>V12 biturbo</span><span>4MATIC</span><span>Interprétation 3D</span></div>
+    </div>
+    <div class="cue" aria-hidden="true">Défiler</div>
+  </section>
+
+  <section class="ch" id="silhouette" data-rail="1">
+    <div class="copy">
+      <p class="kicker">01 — Silhouette</p>
+      <h2>Une ligne qui<br>n'a rien à <em>prouver</em></h2>
+      <p class="lede">Une calandre verticale chromée, un long empattement, des surfaces tendues sans un pli de trop. La S&nbsp;680 occupe la route avec calme.</p>
+    </div>
+  </section>
+
+  <section class="ch right" id="mecanique" data-rail="2">
+    <div class="copy">
+      <p class="kicker">02 — Mécanique</p>
+      <h2>Douze cylindres,<br>aucun <em>effort</em></h2>
+      <ul class="figures">
+        <li><b>6,0<small>L</small></b><span>V12 biturbo</span></li>
+        <li><b>900<small>Nm</small></b><span>Couple maximal</span></li>
+        <li><b>4,3<small>s</small></b><span>0 à 60 mph</span></li>
+        <li><b>10<small>°</small></b><span>Direction arrière</span></li>
+      </ul>
+      <p class="note">Transmission intégrale 4MATIC, boîte 9G-TRONIC, suspension AIRMATIC. Données constructeur (Mercedes-Benz USA, millésime 2027).</p>
+    </div>
+  </section>
+
+  <section class="ch" id="habitacle" data-rail="3">
+    <div class="copy">
+      <p class="kicker">03 — Habitacle</p>
+      <h2>Derrière<br>la <em>porte</em></h2>
+      <p class="lede">Ici, le bruit du monde s'arrête. Cuir beige, lignes basses, tout est pensé pour la place arrière.</p>
+    </div>
+  </section>
+
+  <section class="ch right" id="cuir" data-rail="4">
+    <div class="copy">
+      <p class="kicker">04 — Cuir</p>
+      <h2>Matelassé,<br>point après <em>point</em></h2>
+      <p class="lede">Un cuir beige travaillé en losanges, surpiqué, qui épouse l'assise. Sièges Executive à l'arrière : inclinaison électrique jusqu'à 43°, repose-mollets et repose-pieds.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="ciel" data-rail="5">
+    <div class="copy">
+      <p class="kicker">05 — Ciel étoilé</p>
+      <h2>Le plafond<br>devient <em>nuit</em></h2>
+      <p class="lede">Mille fibres, une lueur qui respire. Aucune étoile n'est pareille, aucune ne brille deux fois de la même façon.</p>
+      <span class="imag">Configuration imaginée</span>
+    </div>
+  </section>
+
+  <section class="ch right" id="options" data-rail="6">
+    <div class="copy">
+      <p class="kicker">06 — Options</p>
+      <h2>Tout ce qu'on<br>ne <em>demande</em> pas</h2>
+      <ul class="optlist" id="optlist"></ul>
+    </div>
+  </section>
+
+  <section class="ch" id="configurateur" data-rail="7">
+    <div class="config">
+      <div>
+        <p class="kicker">07 — Configurer</p>
+        <h2>À <em>votre</em> main</h2>
+      </div>
+      <div class="group"><h3>Teinte</h3><div class="swatches" id="sw-paint"></div></div>
+      <div class="group"><h3>Cuir</h3><div class="swatches" id="sw-leather"></div></div>
+      <div class="group"><h3>Ambiance</h3><div class="swatches" id="sw-amb"></div></div>
+      <div class="group"><h3>Vue</h3>
+        <div class="seg" id="seg-view" role="group" aria-label="Vue">
+          <button aria-pressed="true" data-v="ext">Extérieur</button>
+          <button aria-pressed="false" data-v="int">Habitacle</button>
+        </div>
+      </div>
+      <p class="drag">Glisser pour tourner</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Projet personnel, non officiel et sans but commercial. Non affilié à Mercedes-Benz Group AG ni à Mercedes-Maybach. Les marques et emblèmes appartiennent à leurs propriétaires.</p>
+  <p>Modèle 3D « Mercedes-Benz S680 Maybach » par <a href="https://sketchfab.com/niev" rel="noopener">Nieve5677</a>, licence <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC&nbsp;BY&nbsp;4.0</a>, d'après <a href="https://sketchfab.com/3d-models/mercedes-benz-s680-maybach-652f9fc8a3da4853ac44e192fb66093f" rel="noopener">Sketchfab</a>. Modifié : allégé, matériaux et normales recalculés.</p>
+  <p>Chiffres : Mercedes-Benz USA. Le ciel étoilé, les teintes et cuirs proposés sont une configuration imaginée.</p>
+</footer>
+</body>
+</html>

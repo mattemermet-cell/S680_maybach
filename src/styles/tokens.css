@@ -1,0 +1,13 @@
+:root {
+  --noir: #0a0a0b;
+  --noir-2: #121214;
+  --ivoire: #f1ebe0;
+  --sable: #cdb99a;
+  --or: #b89b6a;
+  --brume: #8f897e;
+  --filet: rgba(241, 235, 224, 0.16);
+  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans: 'Inter Tight Variable', system-ui, sans-serif;
+  --gutter: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(0.22, 0.61, 0.2, 1);
+}
